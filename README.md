@@ -11,7 +11,7 @@ Simply enter a GitHub username and explore profile information, repositories, pr
 ## 🌐 Live Demo
 
 🚀 **Live Demo:**  
-https://YOUR-LIVE-URL-HERE
+https://codesbyayushv.github.io/GitScope/
 
 ---
 
