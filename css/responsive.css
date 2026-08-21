@@ -1,0 +1,846 @@
+/* =========================================================
+   GitScope — Responsive CSS
+   Desktop • Laptop • Tablet • Mobile
+   ========================================================= */
+
+
+/* =========================================================
+   01. LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    :root {
+        --container-width: 1240px;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero-title {
+        font-size: 5.5rem;
+    }
+
+    .profile-card {
+        padding: 34px;
+    }
+
+    .analytics-card {
+        padding: 28px;
+    }
+
+    .repository-card {
+        min-height: 220px;
+    }
+}
+
+
+/* =========================================================
+   02. LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    :root {
+        --container-padding: 22px;
+    }
+
+    .hero {
+        padding-top: 90px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+    }
+
+    .analytics-grid {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+    .profile-stats {
+        grid-template-columns:
+            repeat(5, minmax(0, 1fr));
+    }
+
+    .stat-label {
+        font-size: 0.62rem;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* =========================================================
+   03. TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    :root {
+        --container-padding: 20px;
+        --section-space: 72px;
+    }
+
+    .site-header {
+        height: 70px;
+    }
+
+    .hero {
+        padding:
+            78px
+            0
+            62px;
+    }
+
+    .hero-title {
+        max-width: 700px;
+        font-size: clamp(2.7rem, 8vw, 4rem);
+    }
+
+    .hero-description {
+        max-width: 590px;
+        font-size: 0.95rem;
+    }
+
+    .search-wrapper {
+        min-height: 64px;
+    }
+
+    .profile-main {
+        align-items: flex-start;
+    }
+
+    .profile-heading {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .profile-link {
+        align-self: flex-start;
+    }
+
+    .profile-stats {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        row-gap: 22px;
+    }
+
+    .profile-stats .stat-divider {
+        display: none;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-card {
+        min-height: auto;
+    }
+
+    .repositories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repository-card {
+        min-height: 200px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   04. MOBILE LARGE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    :root {
+        --container-padding: 16px;
+    }
+
+    .container {
+        width: min(
+            calc(100% - (var(--container-padding) * 2)),
+            var(--container-width)
+        );
+    }
+
+    /* ---------------------------------------------
+       Header
+    --------------------------------------------- */
+
+    .site-header {
+        height: 64px;
+    }
+
+    .brand-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .brand-icon span {
+        font-size: 18px;
+    }
+
+    .brand-name {
+        font-size: 1.05rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.55rem;
+    }
+
+    .header-link {
+        padding: 8px 11px;
+        font-size: 0.68rem;
+    }
+
+
+    /* ---------------------------------------------
+       Hero
+    --------------------------------------------- */
+
+    .hero {
+        padding:
+            62px
+            0
+            48px;
+    }
+
+    .hero-badge {
+        padding: 6px 11px;
+        font-size: 0.62rem;
+    }
+
+    .hero-title {
+        margin-top: 18px;
+
+        font-size:
+            clamp(
+                2.35rem,
+                12vw,
+                3.35rem
+            );
+
+        letter-spacing: -0.06em;
+    }
+
+    .hero-description {
+        margin-top: 18px;
+
+        font-size: 0.87rem;
+        line-height: 1.7;
+    }
+
+
+    /* ---------------------------------------------
+       Search
+    --------------------------------------------- */
+
+    .search-wrapper {
+        min-height: auto;
+
+        display: grid;
+        grid-template-columns: 42px 1fr;
+
+        margin-top: 28px;
+        padding: 6px;
+
+        border-radius: 17px;
+    }
+
+    .search-icon {
+        width: 42px;
+        height: 48px;
+        font-size: 23px;
+    }
+
+    .search-input {
+        width: 100%;
+        height: 48px;
+
+        padding: 0 6px;
+
+        font-size: 0.88rem;
+    }
+
+    .analyze-button {
+        grid-column: 1 / -1;
+
+        width: 100%;
+        min-height: 46px;
+
+        margin-top: 5px;
+
+        border-radius: 12px;
+    }
+
+    .search-hint {
+        font-size: 0.62rem;
+    }
+
+
+    /* ---------------------------------------------
+       Profile
+    --------------------------------------------- */
+
+    .profile-card {
+        padding: 21px 18px;
+        border-radius: 20px;
+    }
+
+    .profile-main {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-avatar {
+        width: 92px;
+        height: 92px;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+
+    .profile-heading {
+        align-items: center;
+    }
+
+    .profile-name {
+        font-size: 1.45rem;
+    }
+
+    .profile-username {
+        font-size: 0.72rem;
+    }
+
+    .profile-bio {
+        margin-inline: auto;
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    .profile-link {
+        align-self: center;
+    }
+
+    .profile-meta {
+        justify-content: center;
+        gap: 8px 13px;
+    }
+
+    .meta-item {
+        font-size: 0.62rem;
+    }
+
+
+    /* ---------------------------------------------
+       Stats
+    --------------------------------------------- */
+
+    .profile-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        margin-top: 24px;
+        padding-top: 21px;
+
+        row-gap: 19px;
+    }
+
+    .stat-item {
+        padding: 3px;
+    }
+
+    .stat-label {
+        font-size: 0.56rem;
+    }
+
+    .stat-value {
+        margin-top: 3px;
+        font-size: 1.08rem;
+    }
+
+
+    /* ---------------------------------------------
+       Analytics
+    --------------------------------------------- */
+
+    .analytics-grid {
+        gap: 14px;
+        margin-top: 14px;
+    }
+
+    .analytics-card {
+        padding: 19px;
+        border-radius: 19px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-eyebrow {
+        font-size: 0.58rem;
+    }
+
+    .card-icon {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 10px;
+
+        font-size: 14px;
+    }
+
+    .chart-container {
+        height: 190px;
+        margin-top: 14px;
+    }
+
+    .language-list {
+        gap: 6px;
+    }
+
+    .language-item {
+        padding: 5px 8px;
+        font-size: 0.61rem;
+    }
+
+    .language-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+
+    /* ---------------------------------------------
+       Insights
+    --------------------------------------------- */
+
+    .insight-list {
+        margin-top: 16px;
+    }
+
+    .insight-item {
+        padding: 12px 0;
+    }
+
+    .insight-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        border-radius: 10px;
+    }
+
+    .insight-content span {
+        font-size: 0.6rem;
+    }
+
+    .insight-content strong {
+        font-size: 0.76rem;
+    }
+
+
+    /* ---------------------------------------------
+       Repositories
+    --------------------------------------------- */
+
+    .repositories-section {
+        margin-top: 42px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+
+        margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .section-header p {
+        font-size: 0.7rem;
+    }
+
+    .section-header .secondary-button {
+        align-self: flex-start;
+    }
+
+    .repositories-grid {
+        gap: 12px;
+    }
+
+    .repository-card {
+        min-height: 190px;
+        padding: 18px;
+
+        border-radius: 17px;
+    }
+
+    .repository-name {
+        font-size: 0.9rem;
+    }
+
+    .repository-description {
+        margin-top: 9px;
+        font-size: 0.72rem;
+        line-height: 1.6;
+    }
+
+    .repository-bottom {
+        gap: 10px;
+        padding-top: 18px;
+    }
+
+    .repository-language,
+    .repository-stat {
+        font-size: 0.62rem;
+    }
+
+    .repository-updated {
+        font-size: 0.58rem;
+    }
+
+
+    /* ---------------------------------------------
+       History
+    --------------------------------------------- */
+
+    .history-section {
+        margin-top: 42px;
+    }
+
+    .history-list {
+        gap: 7px;
+    }
+
+    .history-item {
+        padding: 7px 10px;
+        font-size: 0.62rem;
+    }
+
+
+    /* ---------------------------------------------
+       Loading / Error
+    --------------------------------------------- */
+
+    .loading-section,
+    .error-section {
+        padding-bottom: 55px;
+    }
+
+    .loading-card {
+        min-height: 190px;
+    }
+
+    .loading-card h2 {
+        font-size: 1rem;
+    }
+
+    .loading-card p {
+        font-size: 0.72rem;
+    }
+
+    .error-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 18px;
+    }
+
+    .error-icon {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+    }
+
+    .error-content {
+        flex-basis: calc(100% - 56px);
+    }
+
+    .error-content h2 {
+        font-size: 0.9rem;
+    }
+
+    .error-content p {
+        font-size: 0.65rem;
+    }
+
+    .error-card .secondary-button {
+        width: 100%;
+        margin-top: 4px;
+    }
+
+
+    /* ---------------------------------------------
+       Toast
+    --------------------------------------------- */
+
+    .toast {
+        right: 14px;
+        bottom: 14px;
+
+        width:
+            calc(
+                100% - 28px
+            );
+
+        min-width: 0;
+        max-width: none;
+    }
+
+
+    /* ---------------------------------------------
+       Footer
+    --------------------------------------------- */
+
+    .footer-inner {
+        min-height: auto;
+
+        padding:
+            22px
+            0;
+
+        align-items: center;
+        flex-direction: column;
+
+        text-align: center;
+
+        font-size: 0.62rem;
+    }
+}
+
+
+/* =========================================================
+   05. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .brand-tagline {
+        display: none;
+    }
+
+    .header-link span:first-child {
+        display: none;
+    }
+
+    .header-link {
+        width: 36px;
+        height: 36px;
+
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-description {
+        font-size: 0.82rem;
+    }
+
+    .hero-badge {
+        font-size: 0.58rem;
+    }
+
+    .profile-card {
+        padding: 18px 14px;
+    }
+
+    .profile-name {
+        font-size: 1.3rem;
+    }
+
+    .profile-stats {
+        gap: 5px;
+    }
+
+    .stat-value {
+        font-size: 1rem;
+    }
+
+    .stat-label {
+        font-size: 0.5rem;
+    }
+
+    .analytics-card {
+        padding: 16px;
+    }
+
+    .chart-container {
+        height: 175px;
+    }
+
+    .repository-card {
+        padding: 16px;
+    }
+
+    .repository-description {
+        line-clamp: 4;
+        -webkit-line-clamp: 4;
+    }
+}
+
+
+/* =========================================================
+   06. VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+    :root {
+        --container-padding: 12px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-badge {
+        max-width: 100%;
+    }
+
+    .search-input {
+        font-size: 0.8rem;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-value {
+        font-size: 0.95rem;
+    }
+
+    .profile-meta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .repository-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .repository-updated {
+        margin-left: 0;
+    }
+}
+
+
+/* =========================================================
+   07. LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero {
+        padding-top: 45px;
+        padding-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-description {
+        margin-top: 12px;
+    }
+
+    .search-wrapper {
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================================
+   08. TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) {
+
+    .glass-card:hover {
+        border-color:
+            rgba(255, 255, 255, 0.095);
+
+        box-shadow:
+            var(--glass-shadow),
+            inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    }
+
+    .repository-card:hover {
+        transform: none;
+
+        border-color:
+            rgba(255, 255, 255, 0.085);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.065),
+                rgba(255, 255, 255, 0.025)
+            );
+
+        box-shadow:
+            0 14px 45px rgba(0, 0, 0, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    }
+
+    .analyze-button:hover,
+    .secondary-button:hover,
+    .header-link:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   09. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .orb,
+    .status-dot,
+    .loader,
+    .hero-badge,
+    .hero-title,
+    .hero-description,
+    .search-wrapper,
+    .search-hint,
+    .dashboard {
+        animation: none !important;
+    }
+
+    .repository-card,
+    .glass-card,
+    .analyze-button,
+    .secondary-button,
+    .header-link,
+    .history-item {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   END OF RESPONSIVE CSS
+   ========================================================= */

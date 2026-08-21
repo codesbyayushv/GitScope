@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="GitScope — Analyze GitHub profiles, repositories, languages and developer statistics."
+    >
+
+    <meta
+        name="keywords"
+        content="GitHub Analyzer, GitHub Profile Analyzer, Developer Analytics, GitScope"
+    >
+
+    <meta name="author" content="Ayush V">
+
+    <meta
+        name="theme-color"
+        content="#0b0f19"
+    >
+
+    <!-- Open Graph -->
+    <meta
+        property="og:title"
+        content="GitScope — GitHub Profile Analyzer"
+    >
+
+    <meta
+        property="og:description"
+        content="Explore GitHub profiles, repositories, languages and developer statistics."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <title>GitScope — GitHub Profile Analyzer</title>
+
+
+    <!-- =========================================
+         PWA
+    ========================================== -->
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+
+    <!-- =========================================
+         FAVICON
+    ========================================== -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="assets/favicon.png"
+    >
+
+
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
+
+    <div class="background">
+
+        <div class="background-grid"></div>
+
+        <div class="orb orb-one"></div>
+
+        <div class="orb orb-two"></div>
+
+        <div class="orb orb-three"></div>
+
+        <div class="noise"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         APP
+    ========================================== -->
+
+    <div id="app" class="app">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="site-header">
+
+            <div class="container header-inner">
+
+
+                <a
+                    href="#"
+                    class="brand"
+                    aria-label="GitScope Home"
+                >
+
+                    <div class="brand-icon">
+                        <span>◈</span>
+                    </div>
+
+                    <div class="brand-text">
+
+                        <span class="brand-name">
+                            GitScope
+                        </span>
+
+                        <span class="brand-tagline">
+                            GitHub Intelligence
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="header-actions">
+
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="header-link"
+                    >
+
+                        <span>GitHub</span>
+
+                        <span class="external-icon">
+                            ↗
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             MAIN
+        ====================================== -->
+
+        <main>
+
+
+            <!-- =================================
+                 HERO
+            ================================== -->
+
+            <section class="hero">
+
+                <div class="container hero-content">
+
+
+                    <div class="hero-badge">
+
+                        <span class="status-dot"></span>
+
+                        <span>
+                            GitHub Profile Analytics
+                        </span>
+
+                    </div>
+
+
+                    <h1 class="hero-title">
+
+                        Explore.
+
+                        <span class="gradient-text">
+                            Analyze.
+                        </span>
+
+                        Discover.
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Turn any GitHub profile into a beautiful
+                        developer intelligence dashboard with
+                        repositories, languages and statistics.
+
+                    </p>
+
+
+                    <!-- Search -->
+
+                    <form
+                        id="search-form"
+                        class="search-wrapper"
+                        autocomplete="off"
+                    >
+
+                        <div class="search-icon">
+                            <span>⌕</span>
+                        </div>
+
+
+                        <input
+                            id="username-input"
+                            class="search-input"
+                            type="text"
+                            placeholder="Enter GitHub username..."
+                            aria-label="GitHub username"
+                            maxlength="39"
+                            spellcheck="false"
+                            required
+                        >
+
+
+                        <button
+                            id="analyze-button"
+                            class="analyze-button"
+                            type="submit"
+                        >
+
+                            <span class="button-text">
+                                Analyze
+                            </span>
+
+                            <span class="button-icon">
+                                →
+                            </span>
+
+                        </button>
+
+                    </form>
+
+
+                    <p
+                        id="search-hint"
+                        class="search-hint"
+                    >
+                        Try a GitHub username to begin your analysis.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 LOADING
+            ================================== -->
+
+            <section
+                id="loading-section"
+                class="loading-section hidden"
+                aria-live="polite"
+            >
+
+                <div class="container">
+
+                    <div class="glass-card loading-card">
+
+                        <div class="loader"></div>
+
+                        <h2>
+                            Analyzing profile
+                        </h2>
+
+                        <p>
+                            Fetching GitHub intelligence...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ERROR
+            ================================== -->
+
+            <section
+                id="error-section"
+                class="error-section hidden"
+                aria-live="assertive"
+            >
+
+                <div class="container">
+
+                    <div class="glass-card error-card">
+
+                        <div class="error-icon">
+                            !
+                        </div>
+
+
+                        <div class="error-content">
+
+                            <h2>
+                                Profile not found
+                            </h2>
+
+                            <p id="error-message">
+                                We couldn't find that GitHub profile.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            id="retry-button"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Try Again
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 DASHBOARD
+            ================================== -->
+
+            <section
+                id="dashboard"
+                class="dashboard hidden"
+            >
+
+                <div class="container">
+
+
+                    <!-- =============================
+                         PROFILE CARD
+                    ============================== -->
+
+                    <article class="glass-card profile-card">
+
+
+                        <div class="profile-main">
+
+
+                            <div class="avatar-wrapper">
+
+                                <img
+                                    id="profile-avatar"
+                                    class="profile-avatar"
+                                    src=""
+                                    alt="GitHub profile avatar"
+                                >
+
+                                <span
+                                    id="profile-status"
+                                    class="profile-status"
+                                    title="GitHub profile"
+                                ></span>
+
+                            </div>
+
+
+                            <div class="profile-info">
+
+
+                                <div class="profile-heading">
+
+                                    <div>
+
+                                        <h2
+                                            id="profile-name"
+                                            class="profile-name"
+                                        >
+                                            GitHub User
+                                        </h2>
+
+
+                                        <p
+                                            id="profile-username"
+                                            class="profile-username"
+                                        >
+                                            @username
+                                        </p>
+
+                                    </div>
+
+
+                                    <a
+                                        id="profile-link"
+                                        class="profile-link"
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        View Profile ↗
+                                    </a>
+
+                                </div>
+
+
+                                <p
+                                    id="profile-bio"
+                                    class="profile-bio"
+                                >
+                                    GitHub developer
+                                </p>
+
+
+                                <div class="profile-meta">
+
+
+                                    <span
+                                        id="profile-location"
+                                        class="meta-item hidden"
+                                    >
+
+                                        <span>⌖</span>
+
+                                        <span class="meta-value"></span>
+
+                                    </span>
+
+
+                                    <span
+                                        id="profile-company"
+                                        class="meta-item hidden"
+                                    >
+
+                                        <span>⌂</span>
+
+                                        <span class="meta-value"></span>
+
+                                    </span>
+
+
+                                    <span
+                                        id="profile-blog"
+                                        class="meta-item hidden"
+                                    >
+
+                                        <span>↗</span>
+
+                                        <span class="meta-value"></span>
+
+                                    </span>
+
+
+                                    <span
+                                        id="profile-joined"
+                                        class="meta-item"
+                                    >
+
+                                        <span>◷</span>
+
+                                        <span class="meta-value"></span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Profile Stats -->
+
+                        <div class="profile-stats">
+
+
+                            <div class="stat-item">
+
+                                <span class="stat-label">
+                                    Repositories
+                                </span>
+
+                                <strong
+                                    id="stat-repositories"
+                                    class="stat-value"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat-divider"></div>
+
+
+                            <div class="stat-item">
+
+                                <span class="stat-label">
+                                    Followers
+                                </span>
+
+                                <strong
+                                    id="stat-followers"
+                                    class="stat-value"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat-divider"></div>
+
+
+                            <div class="stat-item">
+
+                                <span class="stat-label">
+                                    Following
+                                </span>
+
+                                <strong
+                                    id="stat-following"
+                                    class="stat-value"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat-divider"></div>
+
+
+                            <div class="stat-item">
+
+                                <span class="stat-label">
+                                    Total Stars
+                                </span>
+
+                                <strong
+                                    id="stat-stars"
+                                    class="stat-value"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat-divider"></div>
+
+
+                            <div class="stat-item">
+
+                                <span class="stat-label">
+                                    Total Forks
+                                </span>
+
+                                <strong
+                                    id="stat-forks"
+                                    class="stat-value"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =============================
+                         ANALYTICS GRID
+                    ============================== -->
+
+                    <div class="analytics-grid">
+
+
+                        <!-- Language Analytics -->
+
+                        <article class="glass-card analytics-card">
+
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="card-eyebrow">
+                                        ANALYTICS
+                                    </span>
+
+                                    <h3 class="card-title">
+                                        Language Distribution
+                                    </h3>
+
+                                </div>
+
+
+                                <span class="card-icon">
+                                    ◉
+                                </span>
+
+                            </div>
+
+
+                            <div class="chart-container">
+
+                                <canvas
+                                    id="language-chart"
+                                    aria-label="Programming language distribution chart"
+                                ></canvas>
+
+
+                                <div
+                                    id="language-empty"
+                                    class="empty-state hidden"
+                                >
+                                    No language data available.
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                id="language-list"
+                                class="language-list"
+                            ></div>
+
+                        </article>
+
+
+                        <!-- Repository Overview -->
+
+                        <article class="glass-card analytics-card">
+
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <span class="card-eyebrow">
+                                        OVERVIEW
+                                    </span>
+
+                                    <h3 class="card-title">
+                                        Repository Insights
+                                    </h3>
+
+                                </div>
+
+
+                                <span class="card-icon">
+                                    ◇
+                                </span>
+
+                            </div>
+
+
+                            <div class="insight-list">
+
+
+                                <div class="insight-item">
+
+                                    <div class="insight-icon">
+                                        ★
+                                    </div>
+
+
+                                    <div class="insight-content">
+
+                                        <span>
+                                            Most Starred
+                                        </span>
+
+                                        <strong
+                                            id="most-starred-repo"
+                                        >
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="insight-item">
+
+                                    <div class="insight-icon">
+                                        ◇
+                                    </div>
+
+
+                                    <div class="insight-content">
+
+                                        <span>
+                                            Most Forked
+                                        </span>
+
+                                        <strong
+                                            id="most-forked-repo"
+                                        >
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="insight-item">
+
+                                    <div class="insight-icon">
+                                        &lt;/&gt;
+                                    </div>
+
+
+                                    <div class="insight-content">
+
+                                        <span>
+                                            Top Language
+                                        </span>
+
+                                        <strong
+                                            id="top-language"
+                                        >
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="insight-item">
+
+                                    <div class="insight-icon">
+                                        ◷
+                                    </div>
+
+
+                                    <div class="insight-content">
+
+                                        <span>
+                                            Latest Update
+                                        </span>
+
+                                        <strong
+                                            id="latest-update"
+                                        >
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- =============================
+                         TOP REPOSITORIES
+                    ============================== -->
+
+                    <section class="repositories-section">
+
+
+                        <div class="section-header">
+
+                            <div>
+
+                                <span class="card-eyebrow">
+                                    PROJECTS
+                                </span>
+
+                                <h2>
+                                    Top Repositories
+                                </h2>
+
+                                <p>
+                                    The most notable projects from this profile.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                id="refresh-button"
+                                class="secondary-button"
+                                type="button"
+                            >
+
+                                <span>↻</span>
+
+                                Refresh
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="repositories-grid"
+                            class="repositories-grid"
+                        >
+
+                            <!-- Repository cards injected by JavaScript -->
+
+                        </div>
+
+
+                        <div
+                            id="repositories-empty"
+                            class="glass-card empty-state hidden"
+                        >
+                            No public repositories found.
+                        </div>
+
+                    </section>
+
+
+                    <!-- =============================
+                         SEARCH HISTORY
+                    ============================== -->
+
+                    <section
+                        id="history-section"
+                        class="history-section hidden"
+                    >
+
+
+                        <div class="section-header compact">
+
+                            <div>
+
+                                <span class="card-eyebrow">
+                                    HISTORY
+                                </span>
+
+                                <h2>
+                                    Recent Searches
+                                </h2>
+
+                            </div>
+
+
+                            <button
+                                id="clear-history"
+                                class="text-button"
+                                type="button"
+                            >
+                                Clear
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="history-list"
+                            class="history-list"
+                        ></div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================
+             TOAST
+        ====================================== -->
+
+        <div
+            id="toast"
+            class="toast"
+            role="status"
+            aria-live="polite"
+        >
+
+            <span
+                id="toast-icon"
+                class="toast-icon"
+            >
+                ✓
+            </span>
+
+
+            <span
+                id="toast-message"
+                class="toast-message"
+            >
+                Done
+            </span>
+
+        </div>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="site-footer">
+
+            <div class="container footer-inner">
+
+                <p>
+
+                    © 2026
+
+                    <strong>GitScope</strong>.
+
+                    Built for developers.
+
+                </p>
+
+
+                <p class="footer-credit">
+
+                    Made with
+
+                    <span>♥</span>
+
+                    by
+
+                    <strong>Ayush V</strong>
+
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================
+         CHART.JS
+    ========================================== -->
+
+   <script src="assets/vendor/chart.umd.min.js"></script>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/api.js"></script>
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/charts.js"></script>
+
+    <script src="js/ui.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+    <!-- =========================================
+         SERVICE WORKER
+    ========================================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register("./service-worker.js")
+                        .then(
+                            registration => {
+
+                                console.log(
+                                    "[GitScope] Service Worker registered:",
+                                    registration.scope
+                                );
+
+                            }
+                        )
+                        .catch(
+                            error => {
+
+                                console.error(
+                                    "[GitScope] Service Worker registration failed:",
+                                    error
+                                );
+
+                            }
+                        );
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+</html>
